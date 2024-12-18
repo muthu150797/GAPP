@@ -12,7 +12,7 @@ jobs:
 
     steps:
       -  name:  Print the USER environment variable
-         run: echo "The value of MY_VARIABLE is ${{ vars.USER1 }}"
+         run: echo "The value of MY_VARIABLE "
         
       - name: Checkout code
         uses: actions/checkout@v3  # Checkout the code from the repository
@@ -26,9 +26,9 @@ jobs:
         run: dotnet restore  ./GAPP-BS.sln # Restore dependencies defined in .csproj
 
       - name: Build project
-        run: dotnet build GAPP-BS/GAPP-BS.sln --configuration Release  # Build the project in Release mode
+        run: dotnet build ./GAPP-BS.sln --configuration Release  # Build the project in Release mode
 
       - name: Run tests
-        run: dotnet test GAPP-BS/GAPP-BS.sln --configuration Release  # Run tests (adjust as needed)
+        run: dotnet test ./GAPP-BS.sln --configuration Release  # Run tests (adjust as needed)
 
  
