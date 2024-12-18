@@ -1,0 +1,34 @@
+name: .NET Core CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+ 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Using an Ubuntu runner for the build job
+
+    steps:
+      -  name:  Print the USER environment variable
+         run: echo "The value of MY_VARIABLE is ${{ vars.USER1 }}"
+        
+      - name: Checkout code
+        uses: actions/checkout@v3  # Checkout the code from the repository
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0'  # Specify .NET version (adjust as needed)
+
+      - name: Restore dependencies
+        run: dotnet restore GAPP-BS/Console_CI_CD.sln # Restore dependencies defined in .csproj
+
+      - name: Build project
+        run: dotnet build GAPP-BS/GAPP-BS.sln --configuration Release  # Build the project in Release mode
+
+      - name: Run tests
+        run: dotnet test GAPP-BS/GAPP-BS.sln --configuration Release  # Run tests (adjust as needed)
+
+ 
