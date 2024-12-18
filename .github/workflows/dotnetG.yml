@@ -23,7 +23,7 @@ jobs:
           dotnet-version: '8.0'  # Specify .NET version (adjust as needed)
 
       - name: Restore dependencies
-        run: dotnet restore GAPP-BS/GAPP-BS.sln # Restore dependencies defined in .csproj
+        run: dotnet restore GAPP-BS.sln # Restore dependencies defined in .csproj
 
       - name: Build project
         run: dotnet build GAPP-BS/GAPP-BS.sln --configuration Release  # Build the project in Release mode
