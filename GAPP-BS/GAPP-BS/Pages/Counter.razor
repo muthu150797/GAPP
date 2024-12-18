@@ -1,0 +1,165 @@
+﻿@page "/counter"
+@using GAPP_BS.Services
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Authentication
+@using System.Security.Claims
+@inject NavigationManager Navigation 
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@* @inject SignOutSessionStateManager SignOutManager *@
+@* @inject UserManager<IdentityUser> UserManager *@
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager Navigation
+<PageTitle>Counter</PageTitle>
+@inject IJSRuntime JSRuntime
+<script src="js/blazorschoolgoogleoauth.js"></script>
+<script>
+    function onSignIn(googleUser) {
+        // Handle the sign-in process here, e.g., send user info to server or redirect
+        var profile = googleUser.getBasicProfile();
+        console.log("loggedin", profile);
+        alert('Logged in as: ' + profile.getName());
+        window.location.href = 'https://localhost:7077/signin-google';
+        // You can access other profile information like profile.getEmail(), profile.getImageUrl(), etc.
+    }
+   
+    function initGoogleSignIn() {
+        // window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "25082372106-gaaa8ulgs4s5hi5qpsaagek5c50emjtl.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("buttonDiv"),
+                { theme: "outline", size: "large" }  // customization attributes
+            );
+            google.accounts.id.prompt(); // also display the One Tap dialog
+        // }
+        // gapi.load('auth2', function () {
+        //     var auth2 = gapi.auth2.init({
+        //         client_id: '25082372106-gaaa8ulgs4s5hi5qpsaagek5c50emjtl.apps.googleusercontent.com',
+        //         plugin_name: 'login',
+        //         redirect_uri: 'https://localhost:7077/signin-google',
+        //     });
+
+        //     auth2.attachClickHandler('google-signin-button', {}, onSignIn, function (error) {
+        //        console.log("Error signing in: " , error);
+               
+        //     });
+        // });
+    }
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     initGoogleSignIn();
+    // });
+    $(document).ready(function () {
+       
+
+        //initGoogleSignIn();
+    });
+    window.onload = function () {
+       
+     //   initGoogleSignIn();
+        // google.accounts.id.initialize({
+        //     client_id: '25082372106-gcq3db2b8oatgjdp7psj0n0nc5kl8vvu.apps.googleusercontent.com',
+        //     callback: handleCredentialResponse
+        // });
+        // google.accounts.id.prompt();
+    };
+    // function onSignIn(googleUser) {
+    //     alert()
+    //     var profile = googleUser.getBasicProfile();
+    //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //     console.log('Name: ' + profile.getName());
+    //     console.log('Image URL: ' + profile.getImageUrl());
+    //     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    // }
+    function onClickHandler() {
+        alert("Sign in with Google button clicked...")
+    }
+    function onGoogleScriptLoad() {
+        initGoogleSignIn();
+    }
+</script>
+@* <script src="https://apis.google.com/js/platform.js" async defer></script> *@
+<script src="https://accounts.google.com/gsi/client" async></script>
+
+@* <div id="g_id_onload"
+     data-client_id="25082372106-gaaa8ulgs4s5hi5qpsaagek5c50emjtl.apps.googleusercontent.com"
+     data-login_uri="https://localhost:7077/authentication/login-callback"
+     data-auto_prompt="true">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="sign_in_with"
+     data-shape="rectangular"
+     data-logo_alignment="left">
+</div> *@
+<div id="buttonDiv"></div>
+
+@* <div id="google-signin-button">Sign in with Google</div> *@
+<script src="https://apis.google.com/js/platform.js?onload=onGoogleScriptLoad" async defer></script>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+<button @onclick="LogIn">Count</button>
+@* <button class="btn btn-primary" @onclick="LoginWithGoogle">Click me</button>
+@inject IJSRuntime JSRuntime
+@inject BlazorSchoolAuthenticationStateProvider BlazorSchoolAuthenticationStateProvider
+
+<button type="button" @onclick="SignInWithGoogleAsync">Sign In with Google</button> *@
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        // //  loadLogin();
+        // try
+        // {
+        //     var str = Navigation.Uri;
+        //     Navigation.NavigateTo("/Identity/Account/Login", true);
+
+        //     //  Navigation.NavigateTo($"authentication/login-callback?returnUrl={Uri.EscapeDataString(Navigation.Uri)}");
+        //     // Navigation.NavigateToLogin("authentication/login-callback");
+        // }
+        // catch (NavigationException ex)
+        // {
+        //     Console.WriteLine(ex.Message);
+        // }
+    }
+    private int currentCount = 0;
+    private async Task LoginWithGoogle()
+    {
+        var redirectUrl = Navigation.ToAbsoluteUri("/signin-google");
+       // var properties = SignInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl.ToString());
+        //Navigation.NavigateTo(properties.RedirectUri, true);
+    }
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+    private async Task LogIn()
+    {
+        Navigation.NavigateTo("/signin-google");
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            // User is already authenticated, perform any additional actions
+        }
+        else
+        {
+            // User is not authenticated, initiate login process
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        }
+    }
+
+    private async Task LogOut()
+    {
+       // await AuthenticationStateProvider.LogOut();
+    }
+}
+   

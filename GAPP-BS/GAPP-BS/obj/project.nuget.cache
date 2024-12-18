@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "H3B+bGR6nxbIFVUy7eSPVugdbJMD6RYzeFg/at3I/jaq7Ftm7yTOF4kJBCb7+d8EMZxZQlR1XE5VkGIY0HxDvA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\muthumani.m\\source\\repos\\Studies\\GAPP-BS\\GAPP-BS\\GAPP-BS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.7\\microsoft.aspnetcore.authentication.google.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.7\\microsoft.aspnetcore.authorization.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.7\\microsoft.aspnetcore.components.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.7\\microsoft.aspnetcore.components.analyzers.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\8.0.7\\microsoft.aspnetcore.components.authorization.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.7\\microsoft.aspnetcore.components.forms.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.7\\microsoft.aspnetcore.components.web.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\8.0.7\\microsoft.aspnetcore.components.webassembly.authentication.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.7\\microsoft.aspnetcore.metadata.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.1\\microsoft.extensions.logging.abstractions.8.0.1.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.6.3\\microsoft.identitymodel.abstractions.7.6.3.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.6.3\\microsoft.identitymodel.jsonwebtokens.7.6.3.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.identitymodel.logging\\7.6.3\\microsoft.identitymodel.logging.7.6.3.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.6.3\\microsoft.identitymodel.tokens.7.6.3.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\microsoft.jsinterop\\8.0.7\\microsoft.jsinterop.8.0.7.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.6.3\\system.identitymodel.tokens.jwt.7.6.3.nupkg.sha512",
+    "C:\\Users\\muthumani.m\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

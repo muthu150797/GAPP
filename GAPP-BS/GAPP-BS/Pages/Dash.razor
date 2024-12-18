@@ -1,0 +1,61 @@
+﻿@page "/authentication/login-callback"
+@inject IJSRuntime JSRuntime
+@using GAPP_BS.Services
+@inject CustomAuthenticationStateProvider AuthStateProvider;
+@inject NavigationManager NavigationManager;
+<h3>Welcome</h3>
+@* <script src="https://apis.google.com/js/platform.js" async defer></script> *@
+@* <script src="js/BlazorSchoolGoogleOAuth.js"></script>
+<script>
+    $(document).ready(function () {
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+             console.log('User signed out.', auth2);
+            // var auth2 = gapi.auth2.getAuthInstance();
+            // auth2.signOut().then(function () {
+            //     console.log('User signed out.');
+
+            //     // Invoke the Blazor method
+            //     DotNet.invokeMethodAsync('GAPP_BS', 'Logout')
+            //         .then(data => {
+            //             console.log('Blazor logout invoked');
+            //         })
+            //         .catch(error => {
+            //             console.error(error);
+            //         });
+            // });
+        }
+    });
+    
+</script> *@
+
+@* <button onclick="signOut()">Sign Out</button> *@
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = result.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    // private void logout()
+	// {
+		
+	// }
+ //    [JSInvokable]
+ //    public static Task Logout()
+ //    {
+ //        // Handle the logout logic here
+ //        Console.WriteLine("User logged out");
+
+ //        // For example, clear authentication state, navigate to login page, etc.
+ //        // Redirect user to login page after logout
+ //       // NavigationManager.NavigateTo("/login");
+
+ //        return Task.CompletedTask;
+ //    }
+}

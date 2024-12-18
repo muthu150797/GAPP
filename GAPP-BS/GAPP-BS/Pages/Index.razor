@@ -1,0 +1,35 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Authentication;
+@using Microsoft.AspNetCore.Authentication;
+@using GAPP_BS.Services
+@using Microsoft.AspNetCore.Authentication.Cookies;
+@using Microsoft.AspNetCore.Authentication;
+@inject IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Authentication.Google;
+
+@inject CustomAuthenticationStateProvider AuthenticationStateProvider;
+
+<button @onclick="SignIn">Sign in with Google</button>
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    [Inject] IJSRuntime JSRuntime { get; set; }
+
+    private async Task SignIn()
+    {
+        // var url = "https:accounts.google.com/o/oauth2/auth..."; // Replace with your Google Sign-In URL
+        // await JSRuntime.InvokeVoidAsync("open", url);
+        var authProperties = new AuthenticationProperties { RedirectUri = "/authentication/login-callback" };
+         HttpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        HttpContextAccessor.HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, authProperties);
+
+       // AuthenticationStateProvider.Logout();
+       //   AuthenticationStateProvider.Challenge();
+    }
+}
